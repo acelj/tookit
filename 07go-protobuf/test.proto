@@ -1,0 +1,40 @@
+//注意proto3与proto2的写法有些不同
+syntax = "proto3";
+package example;
+option go_package="./testpb";
+
+message Per {
+    string Name = 1;
+    int32 Age = 2;
+    string From = 3;
+}
+
+
+//手机类型
+//枚举类型第一个字段必须为0
+enum PhoneType {
+    HOME = 0;
+    WORK = 1;
+}
+ 
+//手机
+message Phone {
+    PhoneType type = 1;
+    string number = 2;
+}
+ 
+//人
+message Person {
+    //后面的数字表示标识号
+    int32 id = 1;
+    string name = 2;
+    //repeated表示可重复
+    //可以有多个手机
+    repeated Phone phones = 3;
+    map<string, string> meta = 4;
+}
+ 
+//联系簿
+message ContactBook {
+    repeated Person persons = 1;
+}
