@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project(test)
+aux_source_directory(. SRC_DIR)
+set(CMAKE_CXX_STANDARD 11)
+add_executable(aaa ${SRC_DIR})
